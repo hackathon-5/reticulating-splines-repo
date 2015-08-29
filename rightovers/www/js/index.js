@@ -59,15 +59,15 @@ dom.fail = function(xhr, status, response) {
 
 
 ;(function() {
-	$(document).on('click','#SaveTextMsg',save)
+	$(document).on('click','#SaveUsrName',save)
 	function save(response) {
 		var local = {}
 		
 		response.preventDefault()
-		local.url = 'http://52.21.111.70:8888/server/Usr/UpdateTextMsg.cfm'
+		local.url = 'http://52.21.111.70:8888/server/Usr/SaveUsrName.cfm'
 		local.data = {}
-		local.data.textMsg = $('#textMsg').val()
-		local.data.ID = '8232FFE0-EB61-4E8A-BFED-58B3BE69BEBE'
+		local.data.UsrName = $('#UsrName').val()
+		local.data.telephoneNumber = app.telephoneNumber
 		local.context = this
 		result = $.ajax(local)
 		result.fail(dom.fail)
