@@ -115,9 +115,9 @@ dom.fail = function(xhr, status, response) {
 	}
 	function done(response) {
 		if (parseInt(response,10)) {
-			$('#notifyMe').find('h1').text('You will be notified.')
+			$('#notifyMe').find('h2').text('You will be notified.')
 		} else {
-			$('#notifyMe').find('h1').text('Notifications have been turned off.')
+			$('#notifyMe').find('h2').text('Notifications have been turned off.')
 		}
 	}
 })()
