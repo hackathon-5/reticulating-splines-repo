@@ -51,3 +51,6 @@ input {
 #findNow [role="main"] td {
     padding-bottom: 2em;
 }
+.transparent {
+	opacity:0.01;
+}
