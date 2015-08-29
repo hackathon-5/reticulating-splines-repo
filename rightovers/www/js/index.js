@@ -55,15 +55,12 @@ dom.fail = function(xhr, status, response) {
 	function save(response) {
 		var local = {}
 		
-		response.preventDefault()
-		local.type = 'post'
+		local.type = 'get'
 		local.url = 'http://52.21.111.70:8888/server/Food/Save.cfm'
 		local.data = {}
 		local.data.FoodName = $('#newFood').val()
 		local.data.Qty = $('#Qty').val()
 		local.data.RoomNumber = $('#RoomNumber').val()
-		local.context = this
-		local.crossDomain = true
 		result = $.ajax(local)
 		result.fail(dom.fail)
 		result.done(done)
