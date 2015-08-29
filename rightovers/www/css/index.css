@@ -38,3 +38,13 @@ input {
 .food-type-container img {
 	width: 100%;
 }
+
+#findNow [role="main"] {
+    font-size: 0.7em;
+}
+#findNow [role="main"] img {
+    width: 26px;
+}
+#findNow [role="main"] td {
+    padding-bottom: 2em;
+}
