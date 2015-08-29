@@ -118,8 +118,10 @@ dom.fail = function(xhr, status, response) {
 	function done(response) {
 		if (parseInt(response,10)) {
 			$('#notifyMe').find('h2').text('You will be notified.')
+            $('#btnNotify img').attr('src', 'img/tick7.png')
 		} else {
 			$('#notifyMe').find('h2').text('Notifications have been turned off.')
+            $('#btnNotify img').attr('src', 'img/circle179.png')
 		}
 	}
 })()
