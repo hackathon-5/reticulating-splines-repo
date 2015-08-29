@@ -57,7 +57,7 @@ dom.fail = function(xhr, status, response) {
 		local.type = 'post'
 		local.url = 'http://52.21.111.70:8888/server/Food/Save.cfm'
 		local.data = {}
-		local.data.FoodName = $('#FoodName').val()
+		local.data.FoodName = $('#newFood').val()
 		local.data.Qty = $('#Qty').val()
 		local.data.RoomNumber = $('#RoomNumber').val()
 		local.context = this
@@ -95,7 +95,7 @@ dom.fail = function(xhr, status, response) {
 			tr += '<tr>'
 			tr += '	<td>There are ' + response.DATA[i][1] + ' for ' + response.DATA[i][3] + ' people.</td>'
 			tr += '	<td>'
-			tr += '	<a data-role="button" data-inline="true" href="#navigation">'
+			tr += '	<a class="googleWallet" data-roomnumber="' + response.DATA[i][2] + '" data-role="button" data-inline="true" href="#navigation">'
 			tr += '	<img src="img/google_wallet_icon.png" width="80">Unlock location'
 			tr +=	'	</a></td>'
 			tr += '</tr>'
@@ -153,5 +153,14 @@ function blockC() {
 	$('.food-quantity-container').find('button').buttonMarkup({theme: 'a'});
 	$(this).buttonMarkup({theme: 'b'});
 }
+
+$(document).on('click','#findNow .googleWallet',googleWallet)
+function googleWallet() {
+	var RoomNumber = $(this).data('roomnumber')
+	$('#navigation h2').text(RoomNumber)
+}
+
+
+
 
 app.initialize();
