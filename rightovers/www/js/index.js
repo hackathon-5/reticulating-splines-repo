@@ -17,6 +17,7 @@ var app = {
             console.log("Telephone number = " + result);
             app.telephoneNumber = result;
             $('.phone-number').text(result);
+				// getDefaultNotificationSetting()
         }, function() {
             console.log("Error getting Telephone number");
             $('.phone-number').text("555-555-5555");
@@ -184,9 +185,11 @@ dom.fail = function(xhr, status, response) {
 		if (parseInt(response,10)) {
 			$('#notifyMe').find('h2').text('You will be notified.')
             $('#btnNotify img').attr('src', 'img/tick7.png')
+				$('#btnNotify span').text('Notifications ON')
 		} else {
 			$('#notifyMe').find('h2').text('Notifications have been turned off.')
             $('#btnNotify img').attr('src', 'img/circle179.png')
+				$('#btnNotify span').text('Notifications Off')
 		}
 	}
 })()
@@ -257,6 +260,21 @@ function googleWallet() {
 		$.mobile.navigate('#main')
 	}
 })()
-
-
+/*
+function getDefaultNotificationSetting() {
+	var local = {}
+	
+	local.url = 'http://52.21.111.70:8888/server/Usr/WhereTelephoneNumber.cfm'
+	local.data = {}
+	local.data.telephoneNumber = app.telephoneNumber
+	result = $.ajax(local)
+	result.fail(dom.fail)
+	result.done(done)
+	function done(response) {
+		$('#btnNotify img').attr('src', 'img/tick7.png')
+		$('#btnNotify span').text('Notifications ON')
+	}
+}
+*/
 app.initialize();
+
