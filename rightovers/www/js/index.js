@@ -66,7 +66,23 @@ dom.fail = function(xhr, status, response) {
 ;(function() {
 	$(document).on('click','#Save',getPosition)
 	function getPosition() {
-		navigator.geolocation.getCurrentPosition(save)
+		navigator.geolocation.getCurrentPosition(save,showError)
+	}
+	function showError(error) {
+		 switch(error.code) {
+			  case error.PERMISSION_DENIED:
+					dom.msg.text("User denied the request for Geolocation.")
+					break;
+			  case error.POSITION_UNAVAILABLE:
+					om.msg.text("Location information is unavailable.")
+					break;
+			  case error.TIMEOUT:
+					dom.msg.text("The request to get user location timed out.")
+					break;
+			  case error.UNKNOWN_ERROR:
+					dom.msg.text(x.innerHTML = "An unknown error occurred.")
+					break;
+		 }
 	}
 
 	function save(response) {
