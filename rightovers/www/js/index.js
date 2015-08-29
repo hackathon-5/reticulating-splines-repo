@@ -33,6 +33,7 @@ dom.fail = function(xhr, status, response) {
 		local.data.FoodID = $('#FoodID').val()
 		local.data.Qty = $('#Qty').val()
 		local.context = this
+		local.crossDomain = true
 		result = $.ajax(local)
 		result.fail(dom.fail)
 		result.done(done)
