@@ -28,7 +28,7 @@ dom.fail = function(xhr, status, response) {
 		var local = {}
 		
 		response.preventDefault()
-		local.url = 'Food/Save.cfm'
+		local.url = 'http://52.21.111.70:8888/server/Food/Save.cfm'
 		local.data = {}
 		local.data.FoodID = $('#FoodID').val()
 		local.data.Qty = $('#Qty').val()
