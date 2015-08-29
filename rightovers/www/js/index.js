@@ -57,32 +57,8 @@ dom.fail = function(xhr, status, response) {
 		local.data = {}
 		local.data.FoodID = $('#FoodID').val()
 		local.data.Qty = $('#Qty').val()
-//		local.beforeSend = function(xhr) {
-//			xhr.setRequestHeader('Access-Control-Allow-Origin','*')
-//		}
 		local.context = this
 		local.crossDomain = true
-		result = $.ajax(local)
-		result.fail(dom.fail)
-		result.done(done)
-	}
-	function done(response) {
-		console.log(response)
-	}
-})()
-
-
-;(function() {
-	$(document).on('click','#SaveUsrName',save)
-	function save(response) {
-		var local = {}
-		
-		response.preventDefault()
-		local.url = 'http://52.21.111.70:8888/server/Usr/SaveUsrName.cfm'
-		local.data = {}
-		local.data.UsrName = $('#UsrName').val()
-		local.data.telephoneNumber = app.telephoneNumber
-		local.context = this
 		result = $.ajax(local)
 		result.fail(dom.fail)
 		result.done(done)
@@ -123,5 +99,29 @@ dom.fail = function(xhr, status, response) {
 //	clearTimeout(Variables.token) todo
 
 })()
+
+;(function() {
+	$(document).on('click','#btnNotifyMe',ToggleNotify)
+	function ToggleNotify(response) {
+		var local = {}
+		
+		local.url = 'http://52.21.111.70:8888/server/Usr/ToggleNotify.cfm'
+		local.data = {}
+		local.data.telephoneNumber = app.telephoneNumber
+		local.context = this
+		result = $.ajax(local)
+		result.fail(dom.fail)
+		result.done(done)
+	}
+	function done(response) {
+		if (response) {
+			$('#notifyMe').find('h1').text('You will be notified.')
+		} else {
+			$('#notifyMe').find('h1').text('Notifications have been turned off.')
+		}
+	}
+})()
+
+
 
 app.initialize();

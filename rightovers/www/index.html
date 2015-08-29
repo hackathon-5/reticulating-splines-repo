@@ -24,7 +24,7 @@
 				<a href="#page2">Post food</a>
 			</li>
 			<li>
-				<a href="#notifyMe">Notify me</a>
+				<a id="btnNotify" href="#notifyMe">Notify me</a>
 			</li>
 			<li>
 				 <a id="btnFindNow" href="#findNow">Find Now</a>
@@ -45,19 +45,27 @@
 	</div>
 	<div data-role="content" data-theme="a">
 	<form>
-		<select id="FoodID">
-			<option value="1">Pizza</option>
-			<option value="2">Sandwhich(es)</option>
-			<option value="3">Taco</option>
-		</select>	
+		<fieldset class="ui-grid-a">
+			<div class="ui-block-a">
+				<select id="FoodID">
+					<option value="1">Pizza</option>
+					<option value="2">Sandwhich(es)</option>
+					<option value="3">Taco</option>
+					<option value="4">Custom</option>
+				</select>
+			</div>
+			<div class="ui-block-b">
+				<input id="newFood">
+			</div>
+		</fieldset>
 		<p>Enough for</p>
-		<select id="Qty">
-			<option value="1">1 person</option>
-			<option value="2">2 people</option>
-			<option value="3">3 people</option>
-			<option value="4">4 people</option>
-			<option value="5">5 people</option>
-		</select>
+		<fieldset class="ui-grid-b">
+			<div class="ui-block-a"><button type="submit" data-theme="c">Few</button></div>
+			<div class="ui-block-b"><button type="submit" data-theme="a">Several</button></div>	 
+			<div class="ui-block-c"><button type="submit" data-theme="b">A lot</button></div>  
+		</fieldset>		
+		<label for="RoomNumber">Room Number:</label>
+		<input id="RoomNumber">
 		<button id="Save" type="button" data-theme="b">Save</button>
 	</form>
 	</div>
@@ -89,14 +97,10 @@
 <div data-role="page" data-theme="a" id="notifyMe">
     <div data-role="header" data-position="inline" class="msg">
 			<a href="JavaScript:;" data-rel="back">Back</a>
-        <h1>Notify me:</h1>
+			<h1>Notify me:</h1>
     </div>
     <div data-role="content" data-theme="a">
-    <form>
-        <label for="UsrName">Name:</label>
-        <input id="UsrName">
-        <button id="SaveUsrName" type="button">Save</button>
-    </form>
+	 	<h1>You will be notified</h1>
     </div>
     <div data-role="footer">
         <h4 class="phone-number">Footer</h4>

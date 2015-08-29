@@ -17,7 +17,7 @@ loop query=Usr {
 	svc.setPassword('lru2010!')
 	svc.setPort(465)
 	svc.setServer('smtp.gmail.com')
-	svc.setTo('#Usr.textMsg#')
+	svc.setTo('#Usr.telephoneNumber#@vtext.com')
 	svc.setType('html')
 	svc.setUseSSL(true)
 	svc.Send()
