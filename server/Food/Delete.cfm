@@ -21,7 +21,7 @@ loop query=Usr {
 		svc.setTo('#Usr.telephoneNumber#@vtext.com')
 		svc.setType('html')
 		svc.setUseSSL(true)
-//		svc.Send()
+		svc.Send()
 	}
 }
 </cfscript>

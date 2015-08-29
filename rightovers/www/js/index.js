@@ -162,32 +162,46 @@ function blockC() {
 $(document).on('click','#findNow .googleWallet',googleWallet)
 function googleWallet() {
 	var RoomNumber = $(this).data('roomnumber')
-	var FoodID = $(this).data('foodid')
+	var FoodID = $(this).closest('tr').data('foodid')
 	$('#navigation h2').text('Room ' + RoomNumber)
 	$('#navigation .roomnumber').val(RoomNumber)
 	dom.FoodID.val(FoodID) // Put it into a global scope to be used when the user presses 'All gone'
 }
-$(document).on('click','#navigation a.allgone', deleteAndNotify);
-function deleteAndNotify(){
-	var local = {}
-	
-	local.url = 'http://52.21.111.70:8888/server/Food/Delete.cfm'
-	local.data = {}
-	local.data.FoodID = dom.FoodID.val()
-	result = $.ajax(local)
-	result.fail(dom.fail)
-	result.done(done)
+
+
+;(function() {
+	$(document).on('click','#navigation a.thanks', decrementQty);
+	function decrementQty() {
+		var local = {}
+		
+		local.url = 'http://52.21.111.70:8888/server/Food/decrementQty.cfm'
+		local.data = {}
+		local.data.FoodID = dom.FoodID.val()
+		result = $.ajax(local)
+		result.fail(dom.fail)
+		result.done(done)
+	}
 	function done(response) {
 		$.mobile.navigate('#main')
 	}
-}
-$(document).on('click','#navigation a.thanks', decrementFoodQuantity);
-function decrementFoodQuantity(){
-    // send post request please
-    var RoomNumber = $('#navigation .roomnumber').val();
-    debugger;
-}
+})()
 
+;(function() {
+	$(document).on('click','.allgone', deleteAndNotify);
+	function deleteAndNotify(){
+		var local = {}
+		
+		local.url = 'http://52.21.111.70:8888/server/Food/Delete.cfm'
+		local.data = {}
+		local.data.FoodID = dom.FoodID.val()
+		result = $.ajax(local)
+		result.fail(dom.fail)
+		result.done(done)
+	}
+	function done(response) {
+		$.mobile.navigate('#main')
+	}
+})()
 
 
 app.initialize();
