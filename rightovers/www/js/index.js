@@ -18,7 +18,7 @@ var app = {
             $('.phone-number').text("555-555-5555");
         });
         
-        var compassOptions = { frequency: 10 };
+        var compassOptions = { frequency: 200 };
         var watchID = navigator.compass.watchHeading(compassSuccess, null, compassOptions);
         watchLocation();
     },
@@ -30,11 +30,24 @@ var app = {
 
 
 function doTriangle(degrees){
+    var last = $('.triangle').data('last-degrees');
+    if(!last) last = 0;
+    last = +last;
+    
+    while(180 + last < degrees) {
+        degrees -= 360;
+    }
+    
+    while(180 + degrees < last) {
+        degrees += 360;
+    }
+    
     $('.triangle').css('transform', 'rotate(' + (0 - degrees) + 'deg)' );
+    $('.triangle').data('last-degrees', degrees);
 }
 
 var compassSuccess = function(heading){
-    doTriangle(heading.trueHeading);
+    doTriangle(+heading.trueHeading);
 }
 
 

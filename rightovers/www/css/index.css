@@ -1,6 +1,9 @@
 .num {
 	text-align:right;
 }
+.triangle {
+    transition: 0.2s transform linear;
+}
 .ui-btn, .ui-title, .ui-footer {
     text-shadow: 0 0 0 !important;
 }
