@@ -12,7 +12,7 @@
 </head>
 <body>
 <div data-role="page" data-theme="a">
-	<div data-role="header" data-position="inline">
+	<div data-role="header" data-position="inline" class="msg">
 		<h1>It Worked!</h1>
 	</div>
 	<div data-role="content" data-theme="a">
@@ -27,23 +27,26 @@
 	</div>
 </div>	
 <div data-role="page" data-theme="a" id="page2">
-	<div data-role="header" data-position="inline">
+	<div data-role="header" data-position="inline" class="msg">
 		<h1>I found:</h1>
 	</div>
 	<div data-role="content" data-theme="a">
-		<select name="FoodID">
+	<form method="post">
+		<select id="FoodID">
 			<option value="1">Pizza</option>
 			<option value="2">Sandwhich(es)</option>
 			<option value="3">Taco</option>
 		</select>	
 		<p>Enough for</p>
-		<select name="Qty">
+		<select id="Qty">
 			<option value="1">1 person</option>
 			<option value="2">2 people</option>
 			<option value="3">3 people</option>
 			<option value="4">4 people</option>
 			<option value="5">5 people</option>
 		</select>
+		<button id="Save" type="submit" data-theme="b">Save</button>
+	</form>
 	</div>
 	<div data-role="footer">
 		<h4>Footer</h4>
