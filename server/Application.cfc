@@ -1,6 +1,6 @@
 component {
 this.Name = 'PrairieDog'
-this.dataSource = 'Hackathon'
+this.dataSource = 'PhillipSenn'
 this.SessionManagement = true
 // this.sessionTimeout = CreateTimeSpan(0,0,45,0)
 this.ScriptProtect = 'all'
