@@ -20,6 +20,7 @@ var app = {
         
         var compassOptions = { frequency: 10 };
         var watchID = navigator.compass.watchHeading(compassSuccess, null, compassOptions);
+        watchLocation();
     },
     receivedEvent: function(id) {
         console.log('Received Event: ' + id);
