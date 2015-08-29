@@ -159,7 +159,12 @@ function googleWallet() {
 	$('#navigation h2').text('Room ' + RoomNumber)
 	$('#navigation .roomnumber').val(RoomNumber)
 }
-
+$(document).on('click','#navigation a.allgone', turnIsActiveFlagOffAndAlsoSendTextToSecretary);
+function turnIsActiveFlagOffAndAlsoSendTextToSecretary(){
+    // send post request please
+    var RoomNumber = $('#navigation .roomnumber').val();
+    debugger;
+}
 $(document).on('click','#navigation a.thanks', decrementFoodQuantity);
 function decrementFoodQuantity(){
     // send post request please
