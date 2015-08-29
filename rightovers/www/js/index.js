@@ -153,13 +153,19 @@ function blockC() {
 	$('.food-quantity-container').find('button').buttonMarkup({theme: 'a'});
 	$(this).buttonMarkup({theme: 'b'});
 }
-
 $(document).on('click','#findNow .googleWallet',googleWallet)
 function googleWallet() {
 	var RoomNumber = $(this).data('roomnumber')
-	$('#navigation h2').text(RoomNumber)
+	$('#navigation h2').text('Room ' + RoomNumber)
+	$('#navigation .roomnumber').val(RoomNumber)
 }
 
+$(document).on('click','#navigation a.thanks', decrementFoodQuantity);
+function decrementFoodQuantity(){
+    // send post request please
+    var RoomNumber = $('#navigation .roomnumber').val();
+    debugger;
+}
 
 
 
