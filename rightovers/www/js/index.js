@@ -7,10 +7,21 @@ var app = {
     },
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+
+        var telePlugin = cordova.require("cordova/plugin/telephonenumber");
+        telePlugin.get(function(result) {
+            console.log("Telephone number = " + result);
+            app.telephoneNumber = result;
+            $('.phone-number').text(result);
+        }, function() {
+            console.log("Error getting Telephone number");
+            $('.phone-number').text("555-555-5555');
+        });
     },
     receivedEvent: function(id) {
         console.log('Received Event: ' + id);
-    }
+    },
+    telephoneNumber: "555-555-5555"
 };
 
 var dom = {}
