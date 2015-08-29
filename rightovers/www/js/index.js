@@ -85,8 +85,8 @@ dom.fail = function(xhr, status, response) {
 		local.data.FoodName = $('#newFood').val()
 		local.data.Qty = $('#Qty').val()
 		local.data.RoomNumber = $('#RoomNumber').val()
-		local.data.latitude = mikeLocation.lat
-		local.data.longitude = mikeLocation.long
+		local.data.latitude = mikeLocation.lat || 0
+		local.data.longitude = mikeLocation.long || 0
 		result = $.ajax(local)
 		result.fail(dom.fail)
 		result.done(done)
