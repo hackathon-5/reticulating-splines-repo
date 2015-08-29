@@ -92,8 +92,7 @@ dom.fail = function(xhr, status, response) {
 		
 		for (var i=0; i< response.DATA.length; i++) {
 			tr += '<tr>'
-			tr += '	<td>' + response.DATA[i][1] + '</td>'
-			tr += '	<td>' + response.DATA[i][2] + '</td>'
+			tr += '	<td>There are ' + response.DATA[i][1] + ' for ' + response.DATA[i][3] + ' people.</td>'
 			tr += '</tr>'
 		}
 		$('tbody').html(tr)
