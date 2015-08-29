@@ -59,6 +59,7 @@ dom.fail = function(xhr, status, response) {
 		local.data = {}
 		local.data.FoodName = $('#FoodName').val()
 		local.data.Qty = $('#Qty').val()
+		local.data.RoomNumber = $('#RoomNumber').val()
 		local.context = this
 		local.crossDomain = true
 		result = $.ajax(local)
@@ -66,7 +67,7 @@ dom.fail = function(xhr, status, response) {
 		result.done(done)
 	}
 	function done(response) {
-		console.log(response)
+		$.mobile.navigate('#thanks')
 	}
 })()
 

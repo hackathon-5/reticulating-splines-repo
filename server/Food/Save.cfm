@@ -3,6 +3,7 @@ storedproc
 	procedure='Food.[Save]' {
 	procparam value=form.FoodName;
 	procparam value=form.Qty;
+	procparam value=form.RoomNumber;
 }
 storedproc
 	procedure='Usr.[Where]' {
