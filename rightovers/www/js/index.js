@@ -101,7 +101,7 @@ dom.fail = function(xhr, status, response) {
 })()
 
 ;(function() {
-	$(document).on('click','#btnNotifyMe',ToggleNotify)
+	$(document).on('click','#btnNotify',ToggleNotify)
 	function ToggleNotify(response) {
 		var local = {}
 		
@@ -114,7 +114,7 @@ dom.fail = function(xhr, status, response) {
 		result.done(done)
 	}
 	function done(response) {
-		if (response) {
+		if (parseInt(response,10)) {
 			$('#notifyMe').find('h1').text('You will be notified.')
 		} else {
 			$('#notifyMe').find('h1').text('Notifications have been turned off.')
