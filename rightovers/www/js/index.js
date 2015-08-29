@@ -93,6 +93,8 @@ dom.fail = function(xhr, status, response) {
 
 
 ;(function() {
+	var Variables = {}
+	
 	$(document).on('click','#btnFindNow',findNow)
 	function findNow(response) {
 		var local = {}
