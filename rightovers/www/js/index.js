@@ -15,7 +15,7 @@ var app = {
             $('.phone-number').text(result);
         }, function() {
             console.log("Error getting Telephone number");
-            $('.phone-number').text("555-555-5555');
+            $('.phone-number').text("555-555-5555");
         });
     },
     receivedEvent: function(id) {
