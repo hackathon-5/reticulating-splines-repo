@@ -1,7 +1,6 @@
 .num {
 	text-align:right;
 }
-
 .ui-btn, .ui-title {
     text-shadow: 0 0 0 !important;
 }
@@ -12,4 +11,15 @@ div.ui-header,div.ui-footer {
 
 div.ui-content {
 	font-family: 'Josefin Sans', sans-serif;
+}
+
+.ui-header .ui-title {
+    margin: 0 auto;
+}
+.ui-header .ui-btn-left, .ui-header .ui-btn-right {
+    font-size: 0.6em;
+    margin-top: 0.5em;
+}
+.ui-btn {
+    font-size: 0.6em;
 }
