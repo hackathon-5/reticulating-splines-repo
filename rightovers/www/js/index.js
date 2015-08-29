@@ -55,6 +55,8 @@ var dom = {}
 dom.msg = $('.msg')
 dom.Qty = $('#Qty')
 dom.FoodID = $('#FoodID')
+dom.FoodLatitude = $('#FoodLatitude')
+dom.FoodLongitude = $('#FoodLongitude')
 
 dom.fail = function(xhr, status, response) {
 	dom.msg.text(status + ': ' + response)
@@ -134,10 +136,15 @@ dom.fail = function(xhr, status, response) {
 		// [1] = FoodName
 		// [2] = RoomNumber
 		// [3] = Qty
+		// [4] = FoodLatitude
+		// [5] = FoodLongitude
 		var tr = ''
 		
 		for (var i=0; i< response.DATA.length; i++) {
-			tr += '<tr data-foodid="' + response.DATA[i][0] + '">'
+			tr += '<tr data-foodid="' + response.DATA[i][0]
+			tr += ' data-foodlatitude="' + response.DATA[i][4] + '"'
+			tr += ' data-foodlongitude="' + response.DATA[i][5] + '"'
+			tr += '>'
 			tr += '	<td>There are ' + response.DATA[i][1] + ' for ' + response.DATA[i][3] + ' people.</td>'
 			tr += '	<td>'
 			tr += '	<a class="googleWallet" data-roomnumber="' + response.DATA[i][2] + '" data-role="button" data-inline="true" href="#navigation">'
@@ -202,9 +209,13 @@ $(document).on('click','#findNow .googleWallet',googleWallet)
 function googleWallet() {
 	var RoomNumber = $(this).data('roomnumber')
 	var FoodID = $(this).closest('tr').data('foodid')
+	var FoodLatitude = $(this).closest('tr').data('foodlatitude')
+	var FoodLongitude = $(this).closest('tr').data('foodlongitude')
 	$('#navigation h2').text('Room ' + RoomNumber)
 	$('#navigation .roomnumber').val(RoomNumber)
 	dom.FoodID.val(FoodID) // Put it into a global scope to be used when the user presses 'All gone'
+	dom.FoodLatitude.val(FoodLatitude)
+	dom.FoodLongitude.val(FoodLongitude)
 }
 
 
