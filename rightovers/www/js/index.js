@@ -1,3 +1,7 @@
+window.FoodID = 0
+window.FoodLatitude = 0
+window.FoodLongitude = 0
+
 var app = {
     initialize: function() {
         this.bindEvents();
@@ -54,9 +58,6 @@ var compassSuccess = function(heading){
 var dom = {}
 dom.msg = $('.msg')
 dom.Qty = $('#Qty')
-dom.FoodID = $('#FoodID')
-dom.FoodLatitude = $('#FoodLatitude')
-dom.FoodLongitude = $('#FoodLongitude')
 
 dom.fail = function(xhr, status, response) {
 	dom.msg.text(status + ': ' + response)
@@ -141,7 +142,7 @@ dom.fail = function(xhr, status, response) {
 		var tr = ''
 		
 		for (var i=0; i< response.DATA.length; i++) {
-			tr += '<tr data-foodid="' + response.DATA[i][0]
+			tr += '<tr data-foodid="' + response.DATA[i][0] + '"'
 			tr += ' data-foodlatitude="' + response.DATA[i][4] + '"'
 			tr += ' data-foodlongitude="' + response.DATA[i][5] + '"'
 			tr += '>'
@@ -208,14 +209,11 @@ function blockC() {
 $(document).on('click','#findNow .googleWallet',googleWallet)
 function googleWallet() {
 	var RoomNumber = $(this).data('roomnumber')
-	var FoodID = $(this).closest('tr').data('foodid')
-	var FoodLatitude = $(this).closest('tr').data('foodlatitude')
-	var FoodLongitude = $(this).closest('tr').data('foodlongitude')
+	window.FoodID = $(this).closest('tr').data('foodid')
+	window.FoodLatitude = $(this).closest('tr').data('foodlatitude')
+	window.FoodLongitude = $(this).closest('tr').data('foodlongitude')
 	$('#navigation h2').text('Room ' + RoomNumber)
 	$('#navigation .roomnumber').val(RoomNumber)
-	dom.FoodID.val(FoodID) // Put it into a global scope to be used when the user presses 'All gone'
-	dom.FoodLatitude.val(FoodLatitude)
-	dom.FoodLongitude.val(FoodLongitude)
 }
 
 
@@ -226,7 +224,7 @@ function googleWallet() {
 		
 		local.url = 'http://52.21.111.70:8888/server/Food/decrementQty.cfm'
 		local.data = {}
-		local.data.FoodID = dom.FoodID.val()
+		local.data.FoodID = window.FoodID
 		result = $.ajax(local)
 		result.fail(dom.fail)
 		result.done(done)
@@ -243,7 +241,7 @@ function googleWallet() {
 		
 		local.url = 'http://52.21.111.70:8888/server/Food/Delete.cfm'
 		local.data = {}
-		local.data.FoodID = dom.FoodID.val()
+		local.data.FoodID = window.FoodID
 		result = $.ajax(local)
 		result.fail(dom.fail)
 		result.done(done)
