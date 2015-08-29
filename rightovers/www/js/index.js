@@ -124,3 +124,4 @@ dom.fail = function(xhr, status, response) {
 
 })()
 
+app.initialize();
