@@ -69,12 +69,18 @@ dom.fail = function(xhr, status, response) {
 		navigator.geolocation.getCurrentPosition(save,showError)
 	}
 	function showError(error) {
+		var local = {}
+		local.coords = {}
+		local.coords.latitude = 0
+		local.coords.longitude = 0
+		save(local)
+		/*
 		 switch(error.code) {
 			  case error.PERMISSION_DENIED:
 					dom.msg.text("User denied the request for Geolocation.")
 					break;
 			  case error.POSITION_UNAVAILABLE:
-					om.msg.text("Location information is unavailable.")
+					dom.msg.text("Location information is unavailable.")
 					break;
 			  case error.TIMEOUT:
 					dom.msg.text("The request to get user location timed out.")
@@ -83,6 +89,7 @@ dom.fail = function(xhr, status, response) {
 					dom.msg.text(x.innerHTML = "An unknown error occurred.")
 					break;
 		 }
+		 */
 	}
 
 	function save(response) {

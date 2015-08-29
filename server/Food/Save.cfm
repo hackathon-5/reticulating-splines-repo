@@ -16,7 +16,7 @@ loop query=Usr {
 	if (Notify) {
 		svc = new mail()
 		svc.setSubject('Prairie Dog')
-		svc.setBody("There's " & url.FoodName & " available for " & url.Qty & " people.")
+		svc.setBody("There's " & url.FoodName & " available for " & Food.Qty & " people.")
 		svc.setFrom('Phillip Senn<Phillip.Senn@my.lr.edu>')
 		svc.setUserName('Phillip.Senn@my.lr.edu')
 		svc.setPassword('lru2010!')
