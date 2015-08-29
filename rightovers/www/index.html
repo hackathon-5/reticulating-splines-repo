@@ -8,6 +8,7 @@
 <meta name="msapplication-tap-highlight" content="no" />
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
@@ -58,16 +59,21 @@
 		<h4>Footer</h4>
 	</div>
 </div>	
-<div data-role="page" data-theme="a" id="notifyMe">
+<div data-role="page" data-theme="a" id="findNow">
 	<div data-role="header" data-position="inline" class="msg">
 		<h1>Notify me:</h1>
 	</div>
 	<div data-role="content" data-theme="a">
-	<form>
-		<label for="UsrName">Name:</label>
-		<input id="UsrName">
-		<button id="SaveUsrName" type="button">Save</button>
-	</form>
+		<table>
+			<thead>
+				<tr>
+					<th>Food</th>
+					<th class="num">Qty</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
 	</div>
 	<div data-role="footer">
 		<h4 class="phone-number">Footer</h4>
