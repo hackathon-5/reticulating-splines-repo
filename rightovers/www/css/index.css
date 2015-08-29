@@ -1,3 +1,7 @@
 .num {
 	text-align:right;
 }
+
+.ui-btn, .ui-title {
+    text-shadow: 0 0 0 !important;
+}
