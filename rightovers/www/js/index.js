@@ -28,10 +28,13 @@ dom.fail = function(xhr, status, response) {
 		var local = {}
 		
 		response.preventDefault()
-		local.url = 'http://52.21.111.70:8888/server/Food/Save.cfm'
+		local.url = 'http://52.21.111.70:8888/server/Food/Save.cfc'
 		local.data = {}
 		local.data.FoodID = $('#FoodID').val()
 		local.data.Qty = $('#Qty').val()
+		local.beforeSend = function(xhr) {
+			xhr.setRequestHeader('Access-Control-Allow-Origin','*')
+		}
 		local.context = this
 		local.crossDomain = true
 		result = $.ajax(local)
