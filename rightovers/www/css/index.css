@@ -34,3 +34,7 @@ input {
     font-size: 0.75em;
     margin-top: 0.5em !important
 }
+
+.food-type-container img {
+	width: 100%;
+}

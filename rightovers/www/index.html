@@ -55,21 +55,33 @@
 	</div>
 	<div data-role="content" data-theme="a">
 	<form>
-		<fieldset class="ui-grid-a">
+		<fieldset class="ui-grid-c food-type-container">
 			<div class="ui-block-a">
-				<select id="FoodName">
-					<option value="Pizzas">Pizzas</option>
-					<option value="Sandwiches">Sandwiches</option>
-					<option value="Tacos">Taco</option>
-					<option value="Custom">Custom</option>
-				</select>
+				<button type="button" data-food="Pizzas">
+					<img src="img/italian-food1.png" />
+				</button>
 			</div>
 			<div class="ui-block-b">
-				<input id="newFood">
+				<button type="button" data-food="Sandwiches">
+					<img src="img/sandwich.png" />
+				</button>
+			</div>
+			<div class="ui-block-c">
+				<button type="button" data-food="Tacos">
+					<img src="img/taco.png" />
+				</button>
+			</div>
+			<div class="ui-block-d">
+				<button type="button" data-food="Salads">
+					<img src="img/vegan.png" />
+				</button>
 			</div>
 		</fieldset>
+		<div class="ui-block-b">
+			<input id="newFood">
+		</div>
 		<label>Enough for how many people?</label>
-		<fieldset class="ui-grid-b">
+		<fieldset class="ui-grid-b food-quantity-container">
 			<div class="ui-block-a">
 				<button type="button" data-theme="b">Few</button>
 			</div>

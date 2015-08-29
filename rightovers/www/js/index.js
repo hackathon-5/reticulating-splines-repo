@@ -124,22 +124,26 @@ dom.fail = function(xhr, status, response) {
 	}
 })()
 
-$(document).on('click','.ui-block-a button',blockA)
+$('.food-type-container button').click(function(event) {
+    $('#newFood').val($(this).data('food'));
+});
+
+$(document).on('click','.food-quantity-container .ui-block-a button',blockA)
 function blockA() {
 	dom.Qty.val(1)
-	$('.ui-grid-b').find('button').buttonMarkup({theme: 'a'});
+	$('.food-quantity-container').find('button').buttonMarkup({theme: 'a'});
 	$(this).buttonMarkup({theme: 'b'});
 }
-$(document).on('click','.ui-block-b button',blockB)
+$(document).on('click','.food-quantity-container .ui-block-b button',blockB)
 function blockB() {
 	dom.Qty.val(2)
-	$('.ui-grid-b').find('button').buttonMarkup({theme: 'a'});
+	$('.food-quantity-container').find('button').buttonMarkup({theme: 'a'});
 	$(this).buttonMarkup({theme: 'b'});
 }
-$(document).on('click','.ui-block-c button',blockC)
+$(document).on('click','.food-quantity-container .ui-block-c button',blockC)
 function blockC() {
 	dom.Qty.val(3)
-	$('.ui-grid-b').find('button').buttonMarkup({theme: 'a'});
+	$('.food-quantity-container').find('button').buttonMarkup({theme: 'a'});
 	$(this).buttonMarkup({theme: 'b'});
 }
 
