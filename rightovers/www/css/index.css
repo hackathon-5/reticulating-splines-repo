@@ -23,3 +23,11 @@ div.ui-content {
 .ui-btn {
     font-size: 0.6em;
 }
+input {
+    line-height: 0em !important;
+    min-height: 0em !important;
+}
+.ui-mobile label {
+    font-size: 0.75em;
+    margin-top: 0.5em !important
+}
