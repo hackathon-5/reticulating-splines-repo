@@ -93,7 +93,7 @@ dom.fail = function(xhr, status, response) {
 
 
 ;(function() {
-	$(document).on('click','#findNow',findNow)
+	$(document).on('click','#btnFindNow',findNow)
 	function findNow(response) {
 		var local = {}
 		
@@ -107,7 +107,6 @@ dom.fail = function(xhr, status, response) {
 	}
 	function done(response) {
 		var tr = ''
-		console.log(response.DATA)
 		
 		for (var i=0; i< response.DATA.length; i++) {
 			tr += '<tr>'
@@ -116,6 +115,9 @@ dom.fail = function(xhr, status, response) {
 			tr += '</tr>'
 		}
 		$('tbody').html(tr)
+		Variables.token = setInterval(findNow,30000)
 	}
+//	clearTimeout(Variables.token) todo
+
 })()
 
