@@ -75,34 +75,7 @@ dom.fail = function(xhr, status, response) {
 }
 
 ;(function() {
-	$(document).on('click','#Save',getPosition)
-	function getPosition() {
-		navigator.geolocation.getCurrentPosition(save,showError)
-	}
-	function showError(error) {
-		var local = {}
-		local.coords = {}
-		local.coords.latitude = 0
-		local.coords.longitude = 0
-		save(local)
-		/*
-		 switch(error.code) {
-			  case error.PERMISSION_DENIED:
-					dom.msg.text("User denied the request for Geolocation.")
-					break;
-			  case error.POSITION_UNAVAILABLE:
-					dom.msg.text("Location information is unavailable.")
-					break;
-			  case error.TIMEOUT:
-					dom.msg.text("The request to get user location timed out.")
-					break;
-			  case error.UNKNOWN_ERROR:
-					dom.msg.text(x.innerHTML = "An unknown error occurred.")
-					break;
-		 }
-		 */
-	}
-
+	$(document).on('click','#Save',save)
 	function save(response) {
 		var local = {}
 		
@@ -112,8 +85,8 @@ dom.fail = function(xhr, status, response) {
 		local.data.FoodName = $('#newFood').val()
 		local.data.Qty = $('#Qty').val()
 		local.data.RoomNumber = $('#RoomNumber').val()
-		local.data.latitude = response.coords.latitude
-		local.data.longitude = response.coords.longitude
+		local.data.latitude = mikeLocation.lat
+		local.data.longitude = mikeLocation.long
 		result = $.ajax(local)
 		result.fail(dom.fail)
 		result.done(done)
