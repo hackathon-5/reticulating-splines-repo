@@ -40,6 +40,7 @@ var compassSuccess = function(heading){
 
 var dom = {}
 dom.msg = $('.msg')
+dom.Qty = $('#Qty')
 dom.fail = function(xhr, status, response) {
 	dom.msg.text(status + ': ' + response)
 	if (xhr.responseText) {
@@ -123,6 +124,17 @@ dom.fail = function(xhr, status, response) {
 	}
 })()
 
-
+$(document).on('click','.ui-block-a button',blockA)
+function blockA() {
+	dom.Qty.val(1)
+}
+$(document).on('click','.ui-block-b button',blockB)
+function blockB() {
+	dom.Qty.val(2)
+}
+$(document).on('click','.ui-block-c button',blockC)
+function blockC() {
+	dom.Qty.val(3)
+}
 
 app.initialize();
