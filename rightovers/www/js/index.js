@@ -41,6 +41,8 @@ var compassSuccess = function(heading){
 var dom = {}
 dom.msg = $('.msg')
 dom.Qty = $('#Qty')
+dom.FoodID = $('#FoodID')
+
 dom.fail = function(xhr, status, response) {
 	dom.msg.text(status + ': ' + response)
 	if (xhr.responseText) {
@@ -89,10 +91,14 @@ dom.fail = function(xhr, status, response) {
 		result.done(done)
 	}
 	function done(response) {
+		// [0] = FoodID
+		// [1] = FoodName
+		// [2] = RoomNumber
+		// [3] = Qty
 		var tr = ''
 		
 		for (var i=0; i< response.DATA.length; i++) {
-			tr += '<tr>'
+			tr += '<tr data-foodid="' + response.DATA[i][0] + '">'
 			tr += '	<td>There are ' + response.DATA[i][1] + ' for ' + response.DATA[i][3] + ' people.</td>'
 			tr += '	<td>'
 			tr += '	<a class="googleWallet" data-roomnumber="' + response.DATA[i][2] + '" data-role="button" data-inline="true" href="#navigation">'
@@ -156,14 +162,24 @@ function blockC() {
 $(document).on('click','#findNow .googleWallet',googleWallet)
 function googleWallet() {
 	var RoomNumber = $(this).data('roomnumber')
+	var FoodID = $(this).data('foodid')
 	$('#navigation h2').text('Room ' + RoomNumber)
 	$('#navigation .roomnumber').val(RoomNumber)
+	dom.FoodID.val(FoodID) // Put it into a global scope to be used when the user presses 'All gone'
 }
-$(document).on('click','#navigation a.allgone', turnIsActiveFlagOffAndAlsoSendTextToSecretary);
-function turnIsActiveFlagOffAndAlsoSendTextToSecretary(){
-    // send post request please
-    var RoomNumber = $('#navigation .roomnumber').val();
-    debugger;
+$(document).on('click','#navigation a.allgone', deleteAndNotify);
+function deleteAndNotify(){
+	var local = {}
+	
+	local.url = 'http://52.21.111.70:8888/server/Food/Delete.cfm'
+	local.data = {}
+	local.data.FoodID = dom.FoodID.val()
+	result = $.ajax(local)
+	result.fail(dom.fail)
+	result.done(done)
+	function done(response) {
+		$.mobile.navigate('#main')
+	}
 }
 $(document).on('click','#navigation a.thanks', decrementFoodQuantity);
 function decrementFoodQuantity(){
