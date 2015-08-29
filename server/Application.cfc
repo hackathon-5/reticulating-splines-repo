@@ -48,7 +48,7 @@ function onRequestStart(LogCFCName) {
 	request.hashTag = Chr(35)
 	request.unicode = {}
 	request.unicode.heavyCheckMark = '&##10004;'
-	if (isDefined('form.ID')) {
+	if (isDefined('url.ID')) {
 		StructDelete(session,'Usr')
 		if (Len(url.ID) != 36) {
 			request.msg = 'ID must be a length of 36'
