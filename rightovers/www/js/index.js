@@ -17,7 +17,6 @@ var dom = {}
 dom.msg = $('.msg')
 dom.fail = function(xhr, status, response) {
 	dom.msg.text(status + ': ' + response)
-	debugger
 	if (xhr.responseText) {
 		$('body').html(xhr.responseText)
 	}
@@ -43,7 +42,27 @@ dom.fail = function(xhr, status, response) {
 		result.done(done)
 	}
 	function done(response) {
-		debugger
+		console.log(response)
+	}
+})()
+
+
+;(function() {
+	$(document).on('click','#SaveTextMsg',save)
+	function save(response) {
+		var local = {}
+		
+		response.preventDefault()
+		local.url = 'http://52.21.111.70:8888/server/Usr/UpdateTextMsg.cfm'
+		local.data = {}
+		local.data.textMsg = $('#textMsg').val()
+		local.data.ID = '8232FFE0-EB61-4E8A-BFED-58B3BE69BEBE'
+		local.context = this
+		result = $.ajax(local)
+		result.fail(dom.fail)
+		result.done(done)
+	}
+	function done(response) {
 		console.log(response)
 	}
 })()
