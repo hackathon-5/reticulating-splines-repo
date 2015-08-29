@@ -46,12 +46,19 @@ function doTriangle(degrees){
         degrees += 360;
     }
     
-    $('.triangle').css('transform', 'rotate(' + (0 - degrees) + 'deg)' );
+    $('.triangle').css('transform', 'rotate(' + (degrees) + 'deg)' );
     $('.triangle').data('last-degrees', degrees);
 }
 
 var compassSuccess = function(heading){
-    doTriangle(+heading.trueHeading);
+
+    var yDifference = window.FoodLatitude - mikeLocation.lat;
+    var xDifference = window.FoodLongitude - mikeLocation.long;
+    var desiredAbsoluteAngle = Math.atan2(xDifference, yDifference) * 180 / Math.PI;
+
+    var desiredRotate = desiredAbsoluteAngle - heading.trueHeading;
+
+    doTriangle(desiredRotate);
 }
 
 
