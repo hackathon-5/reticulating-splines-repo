@@ -1,7 +1,7 @@
 <cfscript>
 storedproc
 	procedure='Food.[Save]' {
-	procparam value=form.FoodID;
-	procparam value=form.Qty;
+	procparam value=url.FoodID;
+	procparam value=url.Qty;
 }
 </cfscript>
