@@ -5,3 +5,11 @@
 .ui-btn, .ui-title {
     text-shadow: 0 0 0 !important;
 }
+
+div.ui-header,div.ui-footer {
+	font-family: 'Lobster', cursive;
+}
+
+div.ui-content {
+	font-family: 'Josefin Sans', sans-serif;
+}
