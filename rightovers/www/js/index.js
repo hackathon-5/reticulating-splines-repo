@@ -64,7 +64,11 @@ dom.fail = function(xhr, status, response) {
 }
 
 ;(function() {
-	$(document).on('click','#Save',save)
+	$(document).on('click','#Save',getPosition)
+	function getPosition() {
+		navigator.geolocation.getCurrentPosition(save)
+	}
+
 	function save(response) {
 		var local = {}
 		
@@ -74,6 +78,8 @@ dom.fail = function(xhr, status, response) {
 		local.data.FoodName = $('#newFood').val()
 		local.data.Qty = $('#Qty').val()
 		local.data.RoomNumber = $('#RoomNumber').val()
+		local.data.latitude = response.coords.latitude
+		local.data.longitude = response.coords.longitude
 		result = $.ajax(local)
 		result.fail(dom.fail)
 		result.done(done)
@@ -117,7 +123,7 @@ dom.fail = function(xhr, status, response) {
 			tr += '</tr>'
 		}
 		$('tbody').html(tr).trigger('create')
-		Variables.token = setInterval(findNow,30000)
+//		Variables.token = setInterval(findNow,30000)
 	}
 //	clearTimeout(Variables.token) todo
 

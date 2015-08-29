@@ -4,6 +4,8 @@ storedproc
 	procparam value=url.FoodName;
 	procparam value=url.Qty;
 	procparam value=url.RoomNumber;
+	procparam value=url.Latitude;
+	procparam value=url.Longitude;
 }
 storedproc
 	procedure='Usr.[Where]' {
