@@ -1,3 +1,20 @@
+Hello organization!
+
+This is a phonegap app. :pizza: :hamburger: :doughnut:
+
+# Install instructions: 
+* npm install -g phonegap
+* cd rightovers
+* phonegap run android
+
+If that fails, also:
+* phonegap plugin add com.simonmacdonald.telephonenumber
+* phonegap plugin add org.apache.cordova.device-orientation
+
+# Case study:
+![case study image](https://raw.githubusercontent.com/hackathon-5/reticulating-splines-repo/master/rightovers/www/img/case_study2.png?token=AAvwwoFexzJNcW7ofMmTiczEoIhG_YTOks5V6wlXwA%3D%3D)
+
+
 Maliek sent a text to Matthew saying that there was pizza in the break room.
 Matthew was disheartened because he had already eaten.
 A day later, Matthew sent Maliek a text stating that Krispy Kremes was downstairs.
@@ -11,17 +28,3 @@ It helps organize your lunch time.
 It helps organize the corporate funds by not having any leftover waste.
 
 
-
-
-Hello organization!
-
-This is a phonegap app.
-
-Install instructions: 
-* npm install -g phonegap
-* cd rightovers
-* phonegap run android
-
-If that fails, also:
-* phonegap plugin add com.simonmacdonald.telephonenumber
-* phonegap plugin add org.apache.cordova.device-orientation
