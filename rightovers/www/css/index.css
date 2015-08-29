@@ -1,8 +1,11 @@
 .num {
 	text-align:right;
 }
-.ui-btn, .ui-title {
+.ui-btn, .ui-title, .ui-footer {
     text-shadow: 0 0 0 !important;
+}
+.ui-footer {
+    font-size: 0.5em;
 }
 
 div.ui-header {
