@@ -76,6 +76,7 @@ dom.fail = function(xhr, status, response) {
 	var Variables = {}
 	
 	$(document).on('click','#btnFindNow',findNow)
+	$('#findNow').on( "pageshow", findNow)
 	function findNow(response) {
 		var local = {}
 		
@@ -93,9 +94,13 @@ dom.fail = function(xhr, status, response) {
 		for (var i=0; i< response.DATA.length; i++) {
 			tr += '<tr>'
 			tr += '	<td>There are ' + response.DATA[i][1] + ' for ' + response.DATA[i][3] + ' people.</td>'
+			tr += '	<td>'
+			tr += '	<a data-role="button" data-inline="true" href="#navigation">'
+			tr += '	<img src="img/google_wallet_icon.png" width="80">Unlock location'
+			tr +=	'	</a></td>'
 			tr += '</tr>'
 		}
-		$('tbody').html(tr)
+		$('tbody').html(tr).trigger('create')
 		Variables.token = setInterval(findNow,30000)
 	}
 //	clearTimeout(Variables.token) todo
