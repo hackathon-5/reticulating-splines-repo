@@ -33,9 +33,9 @@ dom.fail = function(xhr, status, response) {
 		local.data = {}
 		local.data.FoodID = $('#FoodID').val()
 		local.data.Qty = $('#Qty').val()
-		local.beforeSend = function(xhr) {
-			xhr.setRequestHeader('Access-Control-Allow-Origin','*')
-		}
+//		local.beforeSend = function(xhr) {
+//			xhr.setRequestHeader('Access-Control-Allow-Origin','*')
+//		}
 		local.context = this
 		local.crossDomain = true
 		result = $.ajax(local)
