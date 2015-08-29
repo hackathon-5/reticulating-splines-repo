@@ -53,9 +53,10 @@ dom.fail = function(xhr, status, response) {
 		var local = {}
 		
 		response.preventDefault()
+		local.type = 'post'
 		local.url = 'http://52.21.111.70:8888/server/Food/Save.cfm'
 		local.data = {}
-		local.data.FoodID = $('#FoodID').val()
+		local.data.FoodName = $('#FoodName').val()
 		local.data.Qty = $('#Qty').val()
 		local.context = this
 		local.crossDomain = true
