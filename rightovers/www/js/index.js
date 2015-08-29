@@ -17,12 +17,25 @@ var app = {
             console.log("Error getting Telephone number");
             $('.phone-number').text("555-555-5555");
         });
+        
+        var compassOptions = { frequency: 10 };
+        var watchID = navigator.compass.watchHeading(compassSuccess, null, compassOptions);
     },
     receivedEvent: function(id) {
         console.log('Received Event: ' + id);
     },
     telephoneNumber: "555-555-5555"
 };
+
+
+function doTriangle(degrees){
+    $('.triangle').css('transform', 'rotate(' + (0 - degrees) + 'deg)' );
+}
+
+var compassSuccess = function(heading){
+    doTriangle(heading.trueHeading);
+}
+
 
 var dom = {}
 dom.msg = $('.msg')

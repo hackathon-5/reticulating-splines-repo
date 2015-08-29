@@ -23,9 +23,12 @@
 			<li>
 				<a href="#notifyMe">Notify me</a>
 			</li>
-			<li>
-				<a href="#findNow">Find Now</a>
-			</li>
+            <li>
+                <a href="#findNow">Find Now</a>
+            </li>
+            <li>
+                <a href="#navigation">Compass</a>
+            </li>
 		</ul>
 	</div>
 	<div data-role="footer">
@@ -59,20 +62,35 @@
 	</div>
 </div>	
 <div data-role="page" data-theme="a" id="notifyMe">
-	<div data-role="header" data-position="inline" class="msg">
-		<h1>Notify me:</h1>
-	</div>
-	<div data-role="content" data-theme="a">
-	<form>
-		<label for="UsrName">Name:</label>
-		<input id="UsrName">
-		<button id="SaveUsrName" type="button">Save</button>
-	</form>
-	</div>
-	<div data-role="footer">
-		<h4 class="phone-number">Footer</h4>
-	</div>
-</div>	
+    <div data-role="header" data-position="inline" class="msg">
+        <h1>Notify me:</h1>
+    </div>
+    <div data-role="content" data-theme="a">
+    <form>
+        <label for="UsrName">Name:</label>
+        <input id="UsrName">
+        <button id="SaveUsrName" type="button">Save</button>
+    </form>
+    </div>
+    <div data-role="footer">
+        <h4 class="phone-number">Footer</h4>
+    </div>
+</div>  
+<div data-role="page" data-theme="a" id="navigation">
+    <div data-role="header" data-position="inline" class="msg">
+        <h1>Navigating</h1>
+    </div>
+    <div data-role="content" data-theme="a">
+        <div class="triangle">
+            <svg height="200" width="500">
+                <polygon points="200,0 250,250 150,250" style="fill:purple;stroke:purple;stroke-width:1" />
+            </svg>
+        </div>
+    </div>
+    <div data-role="footer">
+        <h4 class="phone-number">Footer</h4>
+    </div>
+</div>  
 
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" charset="utf-8" src="telephonenumber.js"></script>
