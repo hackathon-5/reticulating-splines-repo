@@ -58,9 +58,15 @@
 		</fieldset>
 		<p>Enough for</p>
 		<fieldset class="ui-grid-b">
-			<div class="ui-block-a"><button type="submit" data-theme="c">Few</button></div>
-			<div class="ui-block-b"><button type="submit" data-theme="a">Several</button></div>	 
-			<div class="ui-block-c"><button type="submit" data-theme="b">A lot</button></div>  
+			<div class="ui-block-a">
+				<button type="button" data-theme="a">Few</button>
+			</div>
+			<div class="ui-block-b">
+				<button type="button" data-theme="a">Several</button>
+			</div>	 
+			<div class="ui-block-c">
+				<button type="button" data-theme="a">A lot</button>
+			</div>  
 		</fieldset>		
 		<label for="RoomNumber">Room Number:</label>
 		<input id="RoomNumber">
@@ -109,7 +115,7 @@
         </div>
     </div>
 </div>
-
+<input type="hidden" id="Qty">
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" charset="utf-8" src="telephonenumber.js"></script>
 <script type="text/javascript" src="js/geolocation.js"></script>
