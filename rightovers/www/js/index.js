@@ -17,6 +17,7 @@ var dom = {}
 dom.msg = $('.msg')
 dom.fail = function(xhr, status, response) {
 	dom.msg.text(status + ': ' + response)
+	debugger
 	if (xhr.responseText) {
 		$('body').html(xhr.responseText)
 	}
@@ -42,6 +43,7 @@ dom.fail = function(xhr, status, response) {
 		result.done(done)
 	}
 	function done(response) {
+		debugger
 		console.log(response)
 	}
 })()
